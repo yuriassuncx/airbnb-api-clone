@@ -29,12 +29,12 @@ export class UsersController {
   ) {}
 
   @Get()
-  @ApiOperation({ summary: 'Listar todos os usuários' })
+  @ApiOperation({ summary: 'Logar um único usuário' })
   @ApiResponse({
     status: 200,
-    description: 'Captura de Usuários realizada com sucesso',
-    isArray: true,
+    description: 'Loga um usuário com sucesso',
   })
+  @ApiResponse({ status: 400, description: 'Parâmetros inválidos' })
   async login(@Body() loginUserBody: LoginUserBody) {
     const { email, hashedPassword } = loginUserBody;
 
